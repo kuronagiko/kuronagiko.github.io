@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="kuronagikoのポートフォリオ。C#・.NETを中心とした業務システム開発と、AI支援を活用した制作・設計を紹介します。">
+  <meta name="theme-color" content="#172c2a">
+  <title>kuronagiko｜システムエンジニア</title>
+  <style>
+    :root{--ink:#172c2a;--paper:#f5f5ef;--white:#fff;--muted:#687673;--line:#dce1d8;--accent:#d5ef78;--accent-dark:#6e8232;--serif:"Yu Mincho","Hiragino Mincho ProN",serif;--sans:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:84px}
+    body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible{outline:3px solid var(--accent-dark);outline-offset:4px}
+    .skip{position:absolute;left:12px;top:-60px;padding:10px 14px;background:var(--white);z-index:5}.skip:focus{top:12px}
+    .header{height:76px;padding:0 max(7%,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{font-weight:700;letter-spacing:.04em}.brand span{margin-left:12px;color:var(--muted);font:10px/1 monospace;letter-spacing:.15em}
+    nav{display:flex;gap:28px;font-size:13px;color:#4e5b57}nav a:hover,.footer a:hover{color:var(--accent-dark)}
+    .hero{min-height:0;padding:54px max(10%,calc((100vw - 1100px)/2));background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1fr 230px;align-items:center;gap:54px;position:relative;overflow:hidden}
+    .hero-copy,.hero-aside{position:relative;z-index:1}.eyebrow,.section-label,.aside-label,.project-meta{font:11px/1.5 monospace;letter-spacing:.16em}
+    .eyebrow{color:var(--accent);margin:0 0 12px}.hero-title{display:flex;align-items:center;gap:30px;margin:0}.hero-title h1{font:500 clamp(34px,4.8vw,62px)/1.2 var(--serif);letter-spacing:.01em;margin:0}.cat-illustration{display:block;width:184px;height:184px;flex:none;object-fit:contain;border-radius:20px;background:#fff;filter:drop-shadow(0 10px 18px #0c1c1b66)}.hero-description{max-width:660px;color:#c9d3cd;margin:18px 0 0;font-size:14px}
+    .button{display:inline-flex;align-items:center;gap:25px;padding:12px 17px;background:var(--accent);color:var(--ink);font-size:13px;font-weight:700}.button:hover{background:#e6f5ad}
+    .hero-aside{border-top:1px solid #71807b;padding-top:16px;color:#d4ddd7;font-size:13px}.aside-label{color:var(--accent)}.hero-aside p{margin:10px 0}
+    .section{max-width:1160px;margin:auto;padding:88px 7%;display:grid;grid-template-columns:170px 1fr;gap:55px;border-bottom:1px solid var(--line)}
+    .section-label{padding-top:8px;color:var(--muted)}.section-label span{color:var(--accent-dark);margin-right:10px}
+    h2{font:500 clamp(26px,3.4vw,39px)/1.55 var(--serif);letter-spacing:.02em;margin:0 0 22px}.section-content>p{max-width:760px;color:#53615d}
+    .facts{display:flex;gap:36px;margin-top:33px;padding-top:18px;border-top:1px solid var(--line)}.facts div{display:flex;flex-direction:column}.facts strong{font:500 19px/1.5 monospace}.facts span{font-size:11px;color:var(--muted)}
+    .section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:20px}.section-heading h2{margin:0}.section-heading p{margin:0;color:var(--muted);font-size:12px}
+    .project-list{border-top:1px solid var(--line)}.project{display:grid;grid-template-columns:45px 1fr;gap:12px;padding:22px 0 25px;border-bottom:1px solid var(--line)}.project-no{font:11px monospace;color:var(--accent-dark);padding-top:5px}.project-meta{margin:0 0 5px;color:var(--muted);font-size:10px}.project h3{margin:0 0 7px;font-size:17px}.project p:not(.project-meta){max-width:720px;margin:0 0 12px;color:#53615d;font-size:13px}
+    .other-work{margin-top:26px}.other-work h3{margin:0 0 12px;font:11px/1.5 monospace;letter-spacing:.12em;color:var(--muted)}.other-work ul{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;padding:0;margin:0;list-style:none}.other-work li{padding-bottom:7px;border-bottom:1px solid var(--line);font-size:11px;color:#53615d}.other-work time{display:inline-block;min-width:104px;color:var(--accent-dark);font:10px monospace}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;padding:0;margin:0;list-style:none}.tags li{padding:4px 9px;border:1px solid var(--line);border-radius:20px;color:#53615d;font:10px monospace}
+    .skill-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.skill{padding:15px 10px 15px 0;border-bottom:1px solid var(--line)}.skill h3{font-size:11px;font-weight:500;color:var(--muted);margin:0 0 4px}.skill p{margin:0;font-size:13px}
+    .ai-intro{margin:0 0 22px;color:#53615d;font-size:13px}.ai-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ai-card{padding:19px;background:var(--white);border:1px solid var(--line)}.ai-card h3{font-size:15px;margin:0 0 7px}.ai-card p{font-size:12px;color:#53615d;margin:0 0 10px}.ai-card .tech{font:10px/1.6 monospace;color:var(--accent-dark);margin:0}
+    .approach{margin-top:25px;padding-top:18px;border-top:1px solid var(--line)}.approach h3{font-size:13px;margin:0 0 8px}.approach ul{margin:0;padding-left:18px;color:#53615d;font-size:12px}
+    .disclosure{margin-top:28px;padding:14px 16px;border-left:3px solid var(--accent-dark);background:#eef0e6;color:var(--muted);font-size:11px}
+    .footer{max-width:1160px;margin:auto;padding:28px 7%;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}.footer .brand{color:var(--ink)}
+    @media(max-width:760px){.header{height:auto;min-height:70px;padding:14px 6%;gap:18px}nav{gap:13px;font-size:11px}.brand span{display:none}.hero{padding:36px 8%;grid-template-columns:1fr;gap:20px}.hero-title{gap:24px}.hero-title h1{font-size:clamp(32px,7vw,52px)}.cat-illustration{width:150px;height:150px}.hero-aside{max-width:260px}.section{padding:65px 7%;grid-template-columns:1fr;gap:16px}.section-label{padding:0}.section-heading{align-items:flex-start;flex-direction:column;gap:6px}}
+    @media(max-width:480px){body{font-size:14px}.header{align-items:flex-start;flex-direction:column}.header nav{width:100%;justify-content:space-between}.hero{padding:28px 7%;gap:16px}.hero-title{gap:15px}.hero-title h1{font-size:clamp(27px,7.5vw,36px);overflow-wrap:anywhere}.cat-illustration{width:112px;height:112px;border-radius:14px}.hero-description br{display:none}.facts{gap:20px}.facts strong{font-size:15px}.facts span{font-size:10px}.ai-list,.skill-grid,.other-work ul{grid-template-columns:1fr}.other-work time{min-width:96px}.project{grid-template-columns:32px 1fr}.footer{padding:22px 7%;align-items:flex-start;flex-direction:column;gap:9px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="header">
+    <a class="brand" href="#top">kuronagiko<span>PORTFOLIO</span></a>
+    <nav aria-label="ページ内ナビゲーション"><a href="#about">プロフィール</a><a href="#work">業務実績</a><a href="#skills">技術</a><a href="#ai">AI活用</a></nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="hero-title">
+          <img class="cat-illustration" src="cat.jpg" alt="白い背景に座る黒猫のイラスト" width="184" height="184">
+          <div><p class="eyebrow">PORTFOLIO</p><h1 id="hero-title">kuronagiko</h1>
+          <p class="hero-description">システムエンジニア/プログラマー<br>C#・.NETを中心とした業務アプリケーション開発に携わっています。</p></div>
+        </div>
+      </div>
+      <aside class="hero-aside" aria-label="主な開発領域"><span class="aside-label">FOCUS</span><p>業務システム</p><p>Windows / Web</p><p>C# / .NET</p></aside>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-label"><span>01</span> PROFILE</div>
+      <div class="section-content">
+        <div class="section-heading"><h2>プロフィール</h2></div>
+        <p>1995年より、業務システムの開発に従事しています。既存システムの調査・改修から新機能の設計・実装、テスト、保守まで幅広く担当してきました。</p>
+        <div class="facts"><div><strong>1995 —</strong><span>開発経験</span></div><div><strong>C# / .NET</strong><span>主な技術</span></div><div><strong>設計〜保守</strong><span>対応工程</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-label"><span>02</span> SELECTED WORK</div>
+      <div class="section-content">
+        <div class="section-heading"><h2>業務経歴</h2><p>経歴から代表的な案件を抜粋しています。</p></div>
+        <div class="project-list">
+          <article class="project"><span class="project-no">01</span><div><p class="project-meta">WINDOWS APPLICATION</p><h3>分析機器制御アプリの改修</h3><p>分析装置向けWindowsアプリの画面リニューアル、フォームデザイン変更、機能改修を担当しました。</p><ul class="tags"><li>C# / .NET</li><li>WinForms</li><li>Git</li></ul></div></article>
+          <article class="project"><span class="project-no">02</span><div><p class="project-meta">WEB SYSTEM</p><h3>生産管理システムの機能開発</h3><p>生産管理システムの部材管理画面の製造と改修を担当しました。</p><ul class="tags"><li>C# / .NET</li><li>JavaScript</li><li>Oracle</li><li>Git</li></ul></div></article>
+          <article class="project"><span class="project-no">03</span><div><p class="project-meta">TABLET APPLICATION</p><h3>施工管理アプリのタブレット移行</h3><p>既存Androidアプリのコードを調査し、Windowsタブレット向けアプリへの移行開発を担当しました。</p><ul class="tags"><li>C# / .NET</li><li>WPF</li><li>Java</li></ul></div></article>
+          <article class="project"><span class="project-no">04</span><div><p class="project-meta">LONG-TERM BUSINESS SYSTEM</p><h3>人事給与管理システムの機能開発</h3><p>人事・給与管理システムの追加機能開発に長期参画し、機能の設計・実装を担当しました。</p><ul class="tags"><li>JavaScript</li><li>Oracle</li><li>ASP.NET</li></ul></div></article>
+          <article class="project"><span class="project-no">05</span><div><p class="project-meta">LOGISTICS SYSTEM</p><h3>物流システムの開発・導入支援</h3><p>航空貨物の物流システム開発に参加し、設計から実装、テスト、導入支援まで携わりました。</p><ul class="tags"><li>C# / .NET</li><li>SQL Server</li></ul></div></article>
+        </div>
+        <div class="other-work">
+          <h3>OTHER PROJECTS</h3>
+          <ul>
+            <li><time>2024.06–2024.12</time>イベント業務管理システム</li>
+            <li><time>2023.05–2024.04</time>製造販売管理システム</li>
+            <li><time>2023.04</time>販売管理システム</li>
+            <li><time>2023.01–2023.03</time>薬局向け工程管理システム</li>
+            <li><time>2022.02–2022.12</time>介護施設向け管理システム</li>
+            <li><time>2021.05–2021.07</time>金融システム</li>
+            <li><time>2020.10–2020.12</time>食品会社向けシステム</li>
+            <li><time>2019.10–2020.08</time>部材管理システム</li>
+            <li><time>2019.06–2019.08</time>品質管理システム</li>
+            <li><time>2010.11–2011.01</time>交通情報制御システム</li>
+            <li><time>2010.08–2010.10</time>デジタル複合機開発</li>
+            <li><time>2010.01–2010.07</time>不動産管理システム</li>
+            <li><time>2009.06–2009.12</time>通販会社向け販売管理システム</li>
+            <li><time>2008.04–2009.05</time>Webサイト構築</li>
+            <li><time>2006.07–2008.03</time>生命保険契約管理システム</li>
+            <li><time>2006.02–2006.06</time>在庫管理システム</li>
+            <li><time>2005.12–2006.01</time>ICカード販売管理システム</li>
+            <li><time>2004.04–2004.09</time>販売管理システム</li>
+            <li><time>2002.04–2004.03</time>コミュニケーションサイト構築</li>
+            <li><time>2001.09–2002.03</time>携帯電話アプリの動作試験</li>
+            <li><time>1999.05–2001.06</time>ホテル予約サービス</li>
+            <li><time>1999.01–1999.04</time>社員管理システム</li>
+            <li><time>1998.08–1998.12</time>テレビ会議システム</li>
+            <li><time>1998.04–1998.07</time>ビデオ配信サーバー</li>
+            <li><time>1997.10–1998.03</time>防災データ伝送アダプター</li>
+            <li><time>1996.05–1997.09</time>地価情報ソフト</li>
+            <li><time>1995.04–1996.04</time>ゴルフ場統合管理システム</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-label"><span>03</span> TECH STACK</div>
+      <div class="section-content">
+        <h2>技術スタック</h2>
+        <div class="skill-grid">
+          <div class="skill"><h3>言語</h3><p>C# / .NET、VB.NET、JavaScript、Java、Python</p></div>
+          <div class="skill"><h3>アプリ・Web</h3><p>WinForms、WPF、ASP.NET</p></div>
+          <div class="skill"><h3>データベース</h3><p>Oracle、SQL Server、PostgreSQL、MySQL</p></div>
+          <div class="skill"><h3>開発環境・ツール</h3><p>Git、SVN、Windows、Linux、Claude Code、Codex</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai">
+      <div class="section-label"><span>04</span> AI-ASSISTED WORK</div>
+      <div class="section-content">
+        <h2>AI支援を活用した<br>制作・設計</h2>
+        <p class="ai-intro">Claude Code と Codex を、要件整理、設計検討、実装支援、コード改善、調査に活用しています。作業結果を確認しながら対話を重ね、必要な改善を加えていきます。</p>
+        <div class="ai-list">
+          <article class="ai-card"><h3>英作文トレーニングアプリ</h3><p>単語選択、回答判定、次の問題への進行など、学習の流れを整理。</p><p class="tech">Python · GUI · CSV</p></article>
+          <article class="ai-card"><h3>英単語クイズアプリ</h3><p>CSVからの問題表示、4択回答、正誤記録を備えるアプリを制作。</p><p class="tech">Python · GUI · CSV</p></article>
+          <article class="ai-card"><h3>ブラウザー向けランゲーム</h3><p>上方向へ進むゲームのルール、操作、進行を検討。</p><p class="tech">Browser game</p></article>
+          <article class="ai-card"><h3>会計ソフトの設計検討</h3><p>複式簿記を前提に、記帳や青色申告支援ソフトの要件とデータ設計を整理。</p><p class="tech">Requirements · Data design</p></article>
+        </div>
+        <div class="approach"><h3>AI支援の進め方</h3><ul><li>作りたい機能を画面・操作・データなどの要件に分解する。</li><li>設計や実装を進め、実際の利用方法に合わせて改善する。</li><li>提案を確認し、目的や業務知識に合うものを取り入れる。</li></ul></div>
+        <p class="disclosure">業務実績は経歴の一部を抜粋し、取引先名や個人情報、非公開情報を省いています。AI支援の制作・設計例は確認できた作業テーマの紹介であり、完成度、本番公開、利用実績を示すものではありません。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><a class="brand" href="#top">kuronagiko<span>PORTFOLIO</span></a><span>© kuronagiko</span><a href="#top">ページの先頭へ ↑</a></footer>
+</body>
+</html>
